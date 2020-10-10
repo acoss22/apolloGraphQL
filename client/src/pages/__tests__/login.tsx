@@ -22,7 +22,7 @@ describe('Login Page', () => {
 
     const mocks = [
       {
-        request: {query: LOGIN_USER, variables: {email: 'a@a.a'}},
+        request: {query: LOGIN_USER, variables: {email: 'ana_acoss@hotmail.com'}},
         result: {
           data: {
             login: {
