@@ -41,24 +41,39 @@ const Launch: React.FC<LaunchProps>  = ({ launchId }) => {
 
 
 
+// export const GET_LAUNCH_DETAILS = gql`
+//   query LaunchDetails($launchId: ID!) {
+//     launch(id: $launchId) {
+//       id
+//       site
+//       isBooked
+//       rocket {
+//         id
+//         name
+//         type
+//       }
+//       mission {
+//         name
+//         missionPatch
+//       }
+//     }
+//   }
+// `;
 export const GET_LAUNCH_DETAILS = gql`
   query LaunchDetails($launchId: ID!) {
     launch(id: $launchId) {
-      id
+
+      isInCart @client
       site
-      isBooked
       rocket {
-        id
-        name
         type
       }
-      mission {
-        name
-        missionPatch
-      }
+      ...LaunchTile
     }
   }
+  ${LAUNCH_TILE_DATA}
 `;
+
 
 const GET_LAUNCHES = gql`
   query launchList($after: String) {
