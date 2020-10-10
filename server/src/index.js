@@ -10,3 +10,8 @@ const server = new ApolloServer({ typeDefs });
 // Now that Apollo Server is prepared to receive a schema
 
 // Your GraphQL schema defines what types of data a client can read and write to your data graph. Schemas are strongly typed
+
+
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
+});
